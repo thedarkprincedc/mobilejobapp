@@ -1,0 +1,55 @@
+<div class="container">
+<br/><br/><br/>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><b>Open Positions</b></div>
+<table class="table">
+	<tr>
+		<th>Job Code</th>
+		<th>Description</th>
+		<th>Location</th>
+		<th>Employment Type</th>
+	</tr>
+	<tr ng-repeat="item in joblist" data-toggle="modal" data-target=".bs-example-modal-lg" ng-click="onJobItemClick(item.title,item.detail)">
+		<td><a>{{item.position_number}}</a></td>
+		<td>{{item.title}}</td>
+		<td>{{item.city}}, {{item.state}}</td>
+		<td>{{item.employment_type}}</td>
+	</tr>
+</table>
+</div>    
+</div>
+<!-- Large modal -->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">{{jobinfo.jobnumber}} {{jobinfo.title}}</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="container-fluid">
+      		<div class="row">
+      			<div class="col-xs-12">
+      					<div class="row"><b>Posted Date:</b> {{jobinfo.postdate}}</div>
+      					<div class="row"><b>Location:</b> <div ng-bind-html="jobinfo.location"></div></div>
+      					<div class="row"><b>Experience:</b> <div ng-bind-html="jobinfo.experience"></div</div>
+      					<div class="row"><b>Required Skills:</b> {{jobinfo.requiredskills}}</div>
+						<div class="row"><b>Required Documents:</b> {{jobinfo.requireddocuments}}</div>
+						<div class="row"><b>How to apply:</b> Visit the HR Department</div>
+      			</div>
+      		</div>	
+			<div class="row">
+				<div class="col-xs-3"><div class="row"><b>Description:</b></div></div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12"><div class="row"><div ng-bind-html="jobinfo.description"></div></div></div>
+			</div>
+     	 </div>
+      </div>
+    	 <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,1 @@
+var MobileJobAppControllers = angular.module('MobileJobAppControllers', []);
